@@ -126,6 +126,9 @@ class PremiumCard(QWidget):
         if week_num > 0:
             self.week_label['label'].setText(f"Week {week_num}")
             self.week_label['value'].setText(format_currency(data.get('week', 0)))
+            self.week_label['value'].setStyleSheet(
+                f"color: {COLORS['accent_green']}; font-size: 16px; font-weight: 600;"
+            )
         else:
             self.week_label['label'].setText("Week 1")
             self.week_label['value'].setText("—")
@@ -134,6 +137,9 @@ class PremiumCard(QWidget):
         self.month_label['label'].setText(month_name)
         if data.get('month', 0) > 0 or week_num > 0:
             self.month_label['value'].setText(format_currency(data.get('month', 0)))
+            self.month_label['value'].setStyleSheet(
+                f"color: {COLORS['accent_green']}; font-size: 16px; font-weight: 600;"
+            )
         else:
             self.month_label['value'].setText("—")
             self.month_label['value'].setStyleSheet(f"color: {COLORS['text_secondary']}; font-size: 16px;")
@@ -143,6 +149,9 @@ class PremiumCard(QWidget):
         self.ytd_label['label'].setText(f"{display_year} YTD")
         if data.get('ytd', 0) > 0 or week_num > 0:
             self.ytd_label['value'].setText(format_currency(data.get('ytd', 0)))
+            self.ytd_label['value'].setStyleSheet(
+                f"color: {COLORS['accent_green']}; font-size: 16px; font-weight: 600;"
+            )
         else:
             self.ytd_label['value'].setText("—")
             self.ytd_label['value'].setStyleSheet(f"color: {COLORS['text_secondary']}; font-size: 16px;")
