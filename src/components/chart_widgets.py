@@ -238,8 +238,8 @@ class PortfolioChartCard(QWidget):
         self.value_label.setText(format_currency(value))
         
         change_color = COLORS['accent_green'] if change >= 0 else COLORS['accent_red']
-        sign = "+" if change >= 0 else ""
-        self.change_label.setText(f"▼ {format_currency(abs(change))} ({format_percent(change_pct)})")
+        arrow = "▲" if change >= 0 else "▼"
+        self.change_label.setText(f"{arrow} {format_currency(abs(change))} ({format_percent(change_pct)})")
         self.change_label.setStyleSheet(f"font-size: 14px; color: {change_color};")
         
         self.chart.set_data(chart_data)

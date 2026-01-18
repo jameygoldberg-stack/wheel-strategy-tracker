@@ -5,6 +5,7 @@ Supports demo mode with sample data and active mode for real data.
 """
 
 import sqlite3
+import calendar
 from pathlib import Path
 from datetime import datetime, date, timedelta
 from typing import Optional
@@ -459,7 +460,7 @@ class Database:
             projected = (ytd_premium / days_elapsed) * total_days if days_elapsed > 0 else 0
         else:
             days_elapsed = (today - today.replace(month=1, day=1)).days + 1
-            days_in_year = 366 if today.year % 4 == 0 else 365
+            days_in_year = 366 if calendar.isleap(today.year) else 365
             projected = (ytd_premium / days_elapsed) * days_in_year if days_elapsed > 0 else 0
         
         return {
