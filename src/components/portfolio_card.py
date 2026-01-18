@@ -254,17 +254,19 @@ class PortfolioCard(QWidget):
         header_layout.addWidget(header)
         header_layout.addStretch()
         
-        edit_btn = QPushButton("✏️")
-        edit_btn.setFixedSize(32, 32)
+        edit_btn = QPushButton("✏️ Edit")
         edit_btn.setStyleSheet(f"""
             QPushButton {{
-                background-color: transparent;
-                border: 1px solid {COLORS['border']};
+                background-color: {COLORS['accent_green_dark']};
+                border: none;
                 border-radius: 6px;
-                font-size: 14px;
+                font-size: 13px;
+                color: {COLORS['bg_dark']};
+                padding: 6px 12px;
+                font-weight: 600;
             }}
             QPushButton:hover {{
-                background-color: {COLORS['bg_hover']};
+                background-color: {COLORS['accent_green']};
             }}
         """)
         edit_btn.clicked.connect(self._open_edit_dialog)
